@@ -3,7 +3,7 @@ import { getPomodoroTimes } from './data/timer-updates';
 const Timer = () => {
     const tabsclassname = "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=inactive]:text-text-primary  data-[state=active]:bg-foreground bg-opacity-0 duration-500 data-[state=active]:bg-opacity-100  data-[state=active]:text-text-accent data-[state=active]:shadow py-2";
     
-    const [audio] = useState(()=>new Audio('/sounds/notif.mp3'));
+    const [audio,setAudio] = useState<HTMLAudioElement | null>(null);
     const [currentmode, setCurrentMode] = useState("") // this var is for tracking the current moe
     const [mode, setMode] = useState("work");
     const [worktime,setWorkTime] = useState((getPomodoroTimes().workTime)*60) // this is for updating the work timer 
@@ -22,7 +22,12 @@ const Timer = () => {
         setDisplayTime(mode === 'work' ? worktime : breaktime)
     },[mode,worktime,breaktime])
     
-    
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+          // Initialize the audio object in the browser
+          setAudio(new Audio('/sounds/notif.mp3'));
+        }
+      }, []);
     useEffect(() =>{
         if (typeof window !== 'undefined') {    
             const obj = getPomodoroTimes();
@@ -78,7 +83,8 @@ const Timer = () => {
                     toggleMode(); // Switch modes when time is up
                     startTimer(false);
                     // return mode === 'work' ? breaktime : worktime; // 5 mins break or 25 mins work
-                    audio.play();
+                    if(audio)
+                        audio.play();
                     resetTimer()
                     return mode ==='work' ? worktime : breaktime;
                 }
