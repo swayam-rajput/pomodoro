@@ -1,6 +1,6 @@
 
-let worktime = 25;
-let breaktime = 5;
+const worktime = 25;
+const breaktime = 5;
 
 function initializePomodoroTimes() {
     // Check if workTime and breakTime are already in localStorage

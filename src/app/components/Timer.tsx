@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Modal from './Modal';
 import { getPomodoroTimes } from './data/timer-updates';
 const Timer = () => {
     const tabsclassname = "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=inactive]:text-text-primary  data-[state=active]:bg-foreground bg-opacity-0 duration-500 data-[state=active]:bg-opacity-100  data-[state=active]:text-text-accent data-[state=active]:shadow py-2";
@@ -14,7 +13,7 @@ const Timer = () => {
     const [isRunning,startTimer] = useState(false)
     const [showReset,setReset] = useState(false)
     const [reset,resetPomo] = useState(false)
-    const [showModal,setShowModal] = useState(false)
+    // const [showModal,setShowModal] = useState(false)
     // const [hydrated, setHydrated] = useState(false);
     // shouldnt have added these many vars
     
@@ -104,6 +103,7 @@ const Timer = () => {
         resetPomo(true);
         startTimer(false);
         // setMode(mode);
+        reset;
         setReset(false);
         setTime(currentmode === "work"?worktime:breaktime);
         // resetPomo(false)
