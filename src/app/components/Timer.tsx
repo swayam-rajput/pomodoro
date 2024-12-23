@@ -65,7 +65,7 @@ const Timer = () => {
     // if (document)
         // document.title = `${formatTime(mode === 'work' ? worktime : breaktime)}`;
     useEffect(() => {
-        let timer;
+        let timer:NodeJS.Timer|number|null;
         // if (isRunning)
         document.title = `${formatTime(thetime)}`;
         // else document.title = `${formatTime(mode === 'work' ? worktime : breaktime)}`;
@@ -86,7 +86,7 @@ const Timer = () => {
             });
           }, 1000);
         }
-        return () => clearInterval(timer); // Cleanup timer on unmount or pause
+        return () => clearInterval(Number(timer)); // Cleanup timer on unmount or pause
       }, [isRunning, thetime,currentmode,worktime,breaktime]);
     
     
