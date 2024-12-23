@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getPomodoroTimes, updatePomodoroTimes } from './data/timer-updates'
-const Settings = ({closeSettings}) => {
+const Settings = ({closeSettings}:{closeSettings:() => void;}) => {
     // let open = isOpen
     // ;
     const obj = getPomodoroTimes()
