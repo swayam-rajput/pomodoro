@@ -103,7 +103,7 @@ const Timer = () => {
         resetPomo(true);
         startTimer(false);
         // setMode(mode);
-        reset;
+        console.log(reset);
         setReset(false);
         setTime(currentmode === "work"?worktime:breaktime);
         // resetPomo(false)
