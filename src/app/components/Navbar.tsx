@@ -3,28 +3,28 @@ import React, { useState } from 'react'
 import Settings from './Settings'
 
 const Navbar = () => {
-    const [isDark,setDark] = useState(true)
-    const toggleMode = ()=>{
-        document.documentElement.style.colorScheme =    isDark ? 'dark':'light'
-        // document.body.style.backgroundColor =  isDark ? '#020617':'#f8fafc';
-        // document.body.style.color =  isDark ? 'white' : 'black'
-        document.documentElement.classList.replace(!isDark ? 'dark':'light',isDark ? 'dark':'light')
-        // document.body.classList.replace(!isDark ? 'dark':'light',isDark ? 'dark':'light')
-		// document.documentElement.style.transition= 'all .4s'
-		// document.body.style.transition= 'all .2s'
+    // const [isDark,setDark] = useState(true)
+    // const toggleMode = ()=>{
+    //     document.documentElement.style.colorScheme =    isDark ? 'dark':'light'
+    //     // document.body.style.backgroundColor =  isDark ? '#020617':'#f8fafc';
+    //     // document.body.style.color =  isDark ? 'white' : 'black'
+    //     document.documentElement.classList.replace(!isDark ? 'dark':'light',isDark ? 'dark':'light')
+    //     // document.body.classList.replace(!isDark ? 'dark':'light',isDark ? 'dark':'light')
+	// 	// document.documentElement.style.transition= 'all .4s'
+	// 	// document.body.style.transition= 'all .2s'
         
-        console.log(document.documentElement.style.colorScheme)    
-        console.log(document.documentElement.style.backgroundColor)  ;
-        console.log(document.documentElement.style.color)   
-		setDark(!isDark);
-	}
+    //     console.log(document.documentElement.style.colorScheme)    
+    //     console.log(document.documentElement.style.backgroundColor)  ;
+    //     console.log(document.documentElement.style.color)   
+	// 	setDark(!isDark);
+	// }
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [zenMode,activateZen] = useState(true);
 
     const zenActivate = () =>{
         // if (zenMode){
         console.log('zen fun')
-        let list = ['logo','btnSettings','modetabs','playpause']
+        const list = ['logo','btnSettings','modetabs','playpause']
         let element;
         list.forEach(el => {
             element = document.getElementById(el);
@@ -32,7 +32,7 @@ const Navbar = () => {
                   element.style.opacity = zenMode ? "0" : '1';
 
         });
-        let zen = document.getElementById('zen')
+        const zen = document.getElementById('zen')
         if (zen){
             zen.style.opacity = zenMode ? "0.05" :'1';
 
