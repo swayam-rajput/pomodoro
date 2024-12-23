@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className=" dark">
       <head>
       <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -40,7 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body 
-        className={` font-sans antialiased`}
+        className={` font-sans antialiased dark:text-text-primary text-text-accent `}
       >
         {children}
       </body>
